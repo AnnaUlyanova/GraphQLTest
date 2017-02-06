@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "build": "webpack",
+    "knex": "knex",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --hot --inline --content-base server/static/",
     "server": "node-dev server/server",
@@ -33,6 +34,7 @@
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.8",
     "superagent": "^2.3.0",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
@@ -40,6 +42,8 @@
   "dependencies": {
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "sqlite3": "^3.1.8"
   }
 }
