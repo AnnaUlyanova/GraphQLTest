@@ -5,7 +5,11 @@ var db = require('../db')
 
 router.get('/', function (req, res) {
   db.getKudos((err, kudos) => {
-    if (!err) res.json(kudos)
+    if (err){
+      res.status(500)
+    }
+    else 
+    res.status(200).json(kudos)
   })
 })
 
