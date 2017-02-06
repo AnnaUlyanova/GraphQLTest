@@ -1,5 +1,4 @@
-# sophora
+# kudos
 
-> Images and their captions
+> Enabling team gratituding ;)
 
-NEVER PUSH TO MASTER ;)
