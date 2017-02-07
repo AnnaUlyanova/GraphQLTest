@@ -4,7 +4,7 @@ const Kudo = props => {
   const { content, from, to } = props.kudo
   return (
     <div>
-      <p>{from}, {content} - {to}</p>
+      <p>{to}, {content} - {from}</p>
     </div>
   )
 }
