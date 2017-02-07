@@ -9,7 +9,7 @@ import App from './components/App'
 import Home from './containers/HomeViewer'
 import reducers from './reducers'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 let store = createStore(reducers,
   composeEnhancers(applyMiddleware(thunk))
