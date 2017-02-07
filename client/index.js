@@ -6,19 +6,21 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
 import App from './components/App'
+import Home from './containers/HomeViewer'
 import reducers from './reducers'
 
-let store = createStore(
-  reducers, compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+let store = createStore(reducers,
+  composeEnhancers(applyMiddleware(thunk))
 )
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
-      <App />
+      <App >
+        <Home />
+      </App>
     </Provider>,
     document.getElementById('app')
   )
