@@ -4,7 +4,7 @@ var router = express.Router()
 var db = require('../db')
 
 router.get('/', function (req, res) {
-  db.getKudos(function (err, kudos) {
+  db.getKudos((err, kudos) => {
     if (err) {
       res.status(500).send(err)
     } else {

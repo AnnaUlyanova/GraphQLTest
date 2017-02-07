@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
 import App from './components/App'
+import Home from './containers/HomeViewer'
 import reducers from './reducers'
 
 let store = createStore(
@@ -18,7 +19,9 @@ let store = createStore(
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
-      <App />
+      <App >
+        <Home />
+      </App>
     </Provider>,
     document.getElementById('app')
   )

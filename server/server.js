@@ -11,7 +11,7 @@ var app = express()
 app.use(bodyParser.json())
 app.use(cors({origin: 'http://localhost:8080'}))
 app.use(express.static(path.join(__dirname, 'static')))
-app.use('/api', routes)
+app.use('/v1/kudos', routes)
 
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
