@@ -1,20 +1,21 @@
-const kudos = [
-  {
-    "id": 1,
-    "toId": 2,
-    "fromId": 3,
-    "content": "string",
-    "timestamp": "DateTime"
-  }
-]
-
-function getKudos (callback) {
-  setTimeout(() => {
-    callback(null, kudos)
-  }, 1000)
-}
+const environment = process.env.NODE_ENV || 'development'
+const config = require('../knexfile')[environment]
+const connection = require('knex')(config)
 
 module.exports = {
-  kudos,
-  getKudos
+  getKudos: getKudos
+}
+
+function getKudos (callback) {
+  var db = connection
+  db('kudos')
+    .join('users as to', {'kudos.to_user_id': 'to.id'})
+    .join('users as from', {'kudos.from_user_id': 'from.id'})
+    .select('kudos.id', 'kudos.content', 'kudos.timestamp', 'to.name as toName', 'from.name as fromName')
+    .then(function (kudos) {
+      callback(null, kudos)
+    })
+    .catch(function (err) {
+      callback(err)
+    })
 }
