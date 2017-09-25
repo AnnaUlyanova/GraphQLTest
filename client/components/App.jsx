@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const App = props => (
-  <div>
-    <h1>Kudos</h1>
-    {props.children}
-  </div>
-)
+export default function App () {
 
-export default App
+  return (
+    <div>
+      <h1>GraphQL</h1>
+    </div>
+  );
+}
+
+App.displayName = 'App';
