@@ -1,3 +1,5 @@
+// Update with your config settings.
+
 module.exports = {
 
   development: {
@@ -11,9 +13,9 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      database: '',
-      user: '',
-      password: ''
+      database: 'kudos_db',
+      user: 'username',
+      password: 'password'
     },
     pool: {
       min: 2,
@@ -27,9 +29,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: '',
-      user: '',
-      password: ''
+      database: 'kudos_db',
+      user: 'username',
+      password: 'password'
     },
     pool: {
       min: 2,
