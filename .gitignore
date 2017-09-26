@@ -1,3 +1,6 @@
+*.iml
+*.idea/
+
 # Logs
 logs
 *.log
@@ -43,6 +46,3 @@ bundle.js.map
 # SQLite database
 *.sqlite3
 
-
-.idea/
-*.iml
