@@ -1,7 +1,9 @@
 const {
     GraphQLSchema,
     GraphQLObjectType,
-    GraphQLString
+    GraphQLString,
+    GraphQLNonNull,
+    GraphQLInputObjectType
 } = require('graphql');
 
 const RootQueryType = new GraphQLObjectType({
@@ -28,12 +30,46 @@ const RootQueryType = new GraphQLObjectType({
 
 
 const AddUserMutation = require ('./mutations/add-user');
+
 const RootMutationType = new GraphQLObjectType({
     name: 'AddLightboxUser',
-    fields: () => {
+    fields: () => ({
         AddUser: AddUserMutation
-    }
+    })
 });
+
+
+
+//New Code under test
+
+// const UserType  = require('./types/user');
+//
+// const UserInputType = new GraphQLInputObjectType({
+//     name: 'UserInput',
+//     fields: {
+//         firstName: {type: GraphQLString},
+//         lastName: {type: GraphQLString},
+//         email: {type: GraphQLString},
+//         password: {type: GraphQLString}
+//     }
+// });
+// //
+// const RootMutationType = new GraphQLObjectType({
+//     name: 'AddLightboxUser',
+//     fields: () => ({
+//         AddUser: {
+//             type: UserType,
+//             description: 'Add a new Lightbox user',
+//             args: {
+//                 data: {type: new GraphQLNonNull(UserInputType)}
+//             },
+//             resolve: (value, { data }) => {
+//                 return data;
+//             }
+//         }
+//     })
+// });
+
 
 
 const userSchema = new GraphQLSchema({
